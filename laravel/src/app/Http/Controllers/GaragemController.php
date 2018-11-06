@@ -35,7 +35,7 @@ class GaragemController extends BaseController {
     }
 
     public function getGaragem($id){
-        $garagem = $this->garagem-getGaragem($id);
+        $garagem = $this->garagem->getGaragem($id);
         if(!$garagem){
             return response()->json(['response', 'Garagem não encontrada.'], 400)
                 ->header("Content-Type", "application/json");

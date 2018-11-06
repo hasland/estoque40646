@@ -9,7 +9,7 @@ use Sofa\Eloquence\Mappable;
 class Garagem extends Model{
 
     protected $table = 'garagem';
-    protected $fillable = array ('id', 'nome');
+    protected $fillable = array ('id', 'nome', 'telefone');
     protected $primaryKey = 'id';
 
     public function todasGaragens(){
@@ -29,7 +29,7 @@ class Garagem extends Model{
         if (is_null($garagem)){
             return false;
         }
-        return $produto;
+        return $garagem;
     }
 
     public function deletarGaragem($id){

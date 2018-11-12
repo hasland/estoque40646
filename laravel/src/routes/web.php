@@ -21,3 +21,11 @@ Route::get('/teste', function () {
 Route::get('/garagem', function(){
     return view('garagem');
 });
+
+Route::get('/marca', function(){
+    return view('marca');
+});
+
+Route::get('/carro',function(){
+    return view('carro');
+});

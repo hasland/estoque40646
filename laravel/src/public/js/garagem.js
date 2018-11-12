@@ -47,13 +47,13 @@ function alterarGaragem(id){
         $.each(data, function(key, val) {
             garagemAltera.push(val);
         });
-        console.log(garagemAltera);
         $("#alterarForm").modal("show");
         $("#idGaragemAltera").val(garagemAltera[0]);
         $("#nomeGaragemAltera").val(garagemAltera[4]);
         $("#telefoneGaragemAltera").val(garagemAltera[3]);
     });
     $("#alterar").click(function(){
+        console.log(garagemAltera);
         $.ajax({
             type: "PUT",
             url: "http://localhost:41121/api/garagem/"+id,
@@ -64,34 +64,3 @@ function alterarGaragem(id){
         });
     });
 };
-
-
-/*
-$("#cadastrar").click(function() {
-    //enviado
-    $.ajax({
-      type: "POST",
-      url: "http://serene-chamber-53332.herokuapp.com/api/pessoa",
-      data: '{"name":"' +$("#nomePessoa").val()+ '", "mail":"' +$("#emailPessoa").val()+ '", "phone":"' +$("#telefonePessoa").val()+ '"}',
-      success: function(data) {
-      },
-      contentType: "application/json",
-      dataType: "json"
-    }).then(res => {
-      $("#nomePessoa").val("");
-      $("#emailPessoa").val("");
-      $("#telefonePessoa").val("");
-      $("#cadastrarForm").modal("hide");
-      $("#buscar").click();
-    });
-  });
-});
-
-
-
-
-
-
-
-
-/*/

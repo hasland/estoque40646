@@ -12,7 +12,7 @@ class Carro extends Model{
     protected $fillable = array ('id', 'nome', 'anoFabricacao', 'anoModelo', 'preco', 'km', 'vendido', 'opcionais', 'marca_id', 'garagem_id');
     protected $primaryKey = 'id';
 
-    public function todasCarros(){
+    public function todosCarros(){
         return self::all();
     }
     public $timestamps = false;

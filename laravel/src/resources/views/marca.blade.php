@@ -85,12 +85,7 @@
                             <i class="fa fa-user prefix grey-text"></i>
                             <input type="text" id="nomeMarcaAltera" class="form-control validate">
                         </div><br>
-
-                        <div class="md-form mb-4">
-                            <label data-error="wrong" data-success="right" for="telefoneMarcaAltera">Telefone</label>
-                            <i class="fa fa-phone prefix grey-text"></i>
-                            <input type="text" id="telefoneMarcaAltera" class="form-control validate">
-                        </div>
+                        
                     </div>
 
                     <div class="modal-footer d-flex justify-content-center">

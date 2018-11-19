@@ -15,7 +15,7 @@ class CarroController extends BaseController {
     }
 
     public function todosCarros(){
-        return response()->json($this->carro->todasCarros(), 200)
+        return response()->json($this->carro->todosCarros(), 200)
             ->header("Content-Type","application/json");
     }
 

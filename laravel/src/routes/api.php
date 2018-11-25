@@ -16,6 +16,25 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+/*
+|--------------------------------------------------------------------------
+| JWT Routes
+|--------------------------------------------------------------------------
+*/
+Route::post('/jwt/login', '\Paulvl\JWTGuard\Http\Controllers\Auth\LoginController@login')->name('jwt.login');
+Route::post('/jwt/refresh', '\Paulvl\JWTGuard\Http\Controllers\Auth\LoginController@refresh')->name('jwt.refresh');
+Route::post('/jwt/blacklist', '\Paulvl\JWTGuard\Http\Controllers\Auth\LoginController@blacklist')->name('jwt.blacklist');
+
+
+Route::middleware('valid-jwt:api_token')->group (function(){
+    Route::get('/inicio', function () {
+        return 'ok';
+    });
+});
+
+Route::middleware('valid-jwt:api_token')->get('/gabriel', function (Request $request) {
+    // any thing tha you need to protect
+});
 
 //Rotas garagem inicio
 Route::group(['prefix'=>'garagem'], function(){

@@ -46,50 +46,43 @@ function alterarMarca(id){
         $.each(data, function(key, val) {
             marcaAltera.push(val);
         });
-        console.log(marcaAltera);
         $("#alterarForm").modal("show");
         $("#idMarcaAltera").val(marcaAltera[0]);
         $("#nomeMarcaAltera").val(marcaAltera[3]);
     });
-    $("#alterar").click(function(){
-        $.ajax({
-            type: "PUT",
-            url: "http://localhost:41121/api/marca/"+id,
-            data: 'nome='+$("#nomeMarcaAltera").val()
-        }).then(res=>{
-            $("#alterarForm").modal("hide");
-            buscaDados();
-        });
+    $("#AlterarModalBtn").one('click', function(){
+        alteraMarcaBtn(id);
     });
 };
 
-
-/*
-$("#cadastrar").click(function() {
-    //enviado
-    $.ajax({
-      type: "POST",
-      url: "http://serene-chamber-53332.herokuapp.com/api/pessoa",
-      data: '{"name":"' +$("#nomePessoa").val()+ '", "mail":"' +$("#emailPessoa").val()+ '", "phone":"' +$("#telefonePessoa").val()+ '"}',
-      success: function(data) {
-      },
-      contentType: "application/json",
-      dataType: "json"
-    }).then(res => {
-      $("#nomePessoa").val("");
-      $("#emailPessoa").val("");
-      $("#telefonePessoa").val("");
-      $("#cadastrarForm").modal("hide");
-      $("#buscar").click();
-    });
-  });
-});
-
-
-
-
-
-
-
-
-/*/
+function alteraMarcaBtn(id){
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "http://localhost:41121/api/marca/"+id,
+        "method": "PUT",
+        "headers": {
+          "Content-Type": "application/x-www-form-urlencoded",
+          "cache-control": "no-cache",
+        },
+        "data": {
+          "nome": $("#nomeMarcaAltera").val()
+        }
+      }
+      
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+        $("#alterarForm").modal("hide");
+        buscaDados();
+      });
+    // $.ajax({
+    //     type: "PUT",
+    //     url: "http://localhost:41121/api/marca/"+id,
+    //     data: 'nome='+$("#nomeMarcaAltera").val()
+    // }).then(res=>{
+    //     $("#idMarcaAltera").val("");
+    //     $("#nomeMarcaAltera").val("");
+    //     //$("#alterarForm").modal("hide");
+    //     buscaDados();
+    // });
+}

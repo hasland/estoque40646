@@ -52,7 +52,7 @@ function alterarGaragem(id){
         $("#nomeGaragemAltera").val(garagemAltera[4]);
         $("#telefoneGaragemAltera").val(garagemAltera[3]);
     });
-    $("#alterar").click(function(){
+    $("#alterar").one('click', function(){
         console.log(garagemAltera);
         $.ajax({
             type: "PUT",

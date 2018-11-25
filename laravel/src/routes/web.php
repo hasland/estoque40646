@@ -29,3 +29,11 @@ Route::get('/marca', function(){
 Route::get('/carro',function(){
     return view('carro');
 });
+
+Route::get('/inicio',function(){
+    return view('inicio');
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
